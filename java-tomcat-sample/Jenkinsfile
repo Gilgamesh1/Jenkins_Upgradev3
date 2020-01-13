@@ -12,5 +12,8 @@ pipeline{
                 }
             }
         }
+        stage('Deploy Applitacion Staging QA'){
+            build job: 'Deploy_ApplitacionStaging_Env'
+        }
     }
 }
