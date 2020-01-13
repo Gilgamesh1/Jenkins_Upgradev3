@@ -9,7 +9,7 @@ job('First-Maven-Project-Via-DSL'){
     steps{
         maven('clean package', 'maven-samples/single-module/pom.xml')
     }
-    publisher{
+    publishers{
         archiveArtifacts '**/*.jar'
     }
 }
