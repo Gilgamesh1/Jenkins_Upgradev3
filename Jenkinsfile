@@ -21,8 +21,8 @@ pipeline{
         stage('Deploy Production'){
             steps{
                 echo 'Deplegando la aplicacion en Produccion.....'
-                0.step 5,1, {
-                    echo '2(Yeahh Baby...)'
+                for(int i=0; i<5 ; i++) {
+                    echo 'Yeahh Baby...'
                 }
             }
         }
