@@ -18,5 +18,13 @@ pipeline{
                 echo 'Yeahh Baby...'
             }
         }
+        stage('Deploy Production'){
+            steps{
+                echo 'Deplegando la aplicacion en Produccion.....'
+                0.step 5,1, {
+                    echo '2(Yeahh Baby...)'
+                }
+            }
+        }
     }
 }
