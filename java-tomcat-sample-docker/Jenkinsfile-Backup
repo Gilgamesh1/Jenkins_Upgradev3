@@ -1,21 +1,25 @@
-pipeline{
+pipeline {
     agent any
     stages {
-        stage('Constuyendo la Aplicacion'){
+        stage('Build Application') {
             steps {
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
             }
             post {
                 success {
-                    echo "Ahora archivando el artefacto .... "
+                    echo "Now Archiving the Artifacts...."
                     archiveArtifacts artifacts: '**/*.war'
                 }
             }
         }
-        stage('Create TomcatDocker Iamge'){
+
+        stage('Create Tomcat Docker Image'){
             steps {
-                sh 'docker build . -t tomcatsamplewebapp:${env.BUILD_ID}'
+                sh "pwd"
+                sh "ls -a"
+                sh "docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp:${env.BUILD_ID}"
             }
         }
+
     }
 }
